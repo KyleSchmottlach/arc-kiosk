@@ -10,9 +10,12 @@
     "build": "vite build",
     "check-types": "tsc -b --noEmit",
     "lint": "eslint .",
-    "preview": "vite preview"
+    "preview": "vite preview",
+    "firebase:deploy:hosting": "turbo run build && firebase use default && firebase deploy --only hosting",
+    "firebase:deploy:database": "firebase deploy --only database"
   },
   "dependencies": {
+    "firebase": "^11.6.0",
     "react": "^19.0.0",
     "react-dom": "^19.0.0"
   },
