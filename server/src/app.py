@@ -12,6 +12,7 @@ from detectron2.utils.visualizer import Visualizer
 from detectron2.data import MetadataCatalog
 from PIL import Image
 import io
+import os
 import base64
 
 app = Flask(__name__)
@@ -84,4 +85,4 @@ def detect_objects():
     })
 
 if __name__ == '__main__':
-    app.run(host='0.0.0.0', port=4000, threaded=True)
+    app.run(host='0.0.0.0', port=int(os.environ.get('PORT', 12500)), threaded=True)
