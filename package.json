@@ -18,10 +18,13 @@
     "gloud:deploy": "cd server && gcloud builds submit --tag gcr.io/arc-kiosk/backend && gcloud run deploy --image gcr.io/arc-kiosk/backend --platform managed"
   },
   "dependencies": {
+    "@tailwindcss/vite": "^4.1.4",
     "axios": "^1.9.0",
     "firebase": "^11.6.0",
     "react": "^19.0.0",
-    "react-dom": "^19.0.0"
+    "react-dom": "^19.0.0",
+    "react-router": "^7.5.2",
+    "tailwindcss": "^4.1.4"
   },
   "devDependencies": {
     "@eslint/js": "^9.22.0",
