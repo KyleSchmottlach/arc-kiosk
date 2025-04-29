@@ -8,10 +8,12 @@ function App() {
 
   function Root() {
     return (
-      <div className={"flex w-screen h-screen"}>
+      <>
         <Navbar />
-        <Outlet />
-      </div>
+        <div className={"relative p-4 top-nav-height left-0 w-screen h-screen-height-nav"}>
+          <Outlet />
+        </div>
+      </>
     );
   }
   

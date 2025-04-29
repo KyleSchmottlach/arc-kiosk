@@ -26,11 +26,17 @@
   --font-thewave-demibold: "The Wave DemiBold", sans-serif;
   --font-thewave-light: "The Wave Light", sans-serif;
   --font-thewave-thin: "The Wave Thin", sans-serif;
+
+  --nav-height: 8rem;
+  --screen-height-nav: calc(100vh - var(--nav-height));
+
+  --spacing-nav-height: var(--nav-height);
+  --spacing-screen-height-nav: var(--screen-height-nav);
 }
 
 #root {
-  max-width: 1280px;
   margin: 0 auto;
-  padding: 2rem;
+  width: 100vw;
+  height: 100vh;
   text-align: center;
 }
