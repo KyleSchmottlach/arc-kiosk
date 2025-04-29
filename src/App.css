@@ -1,5 +1,33 @@
 @import "tailwindcss";
 
+@theme {
+  --color-prim-arc-black: #000000;
+  --color-prim-arc-white: #ffffff;
+  --color-sec-arc-grey: #b2b1b0;
+  --color-sec-arc-lightgrey: #dad7d5;
+  --color-sec-arc-purple: #3a1f57;
+  --color-sec-arc-copengreen: #004030;
+  --color-sec-arc-ctagreen: #00854b;
+  --color-sec-arc-lightgreen: #00aa5f;
+  --color-sec-arc-lightblue: #00b4e3;
+  --color-sec-arc-ctablue: #002699;
+  --color-sec-arc-orange: #ff4600;
+  --color-sec-arc-yellow: #ffc800;
+  --color-sec-arc-violet: #5a4b9b;
+  --color-sec-arc-pink: #ff9baa;
+  --color-sec-arc-brown: #4F2424;
+  --color-sec-arc-silver: #8a8d8f;
+  --color-acc-green: #4AAE48;
+  --color-acc-yellow: #ffd635;
+  --color-acc-orange: #ff8f6c;
+
+  --font-thewave-regular: "The Wave Regular", sans-serif;
+  --font-thewave-bold: "The Wave Bold", sans-serif;
+  --font-thewave-demibold: "The Wave DemiBold", sans-serif;
+  --font-thewave-light: "The Wave Light", sans-serif;
+  --font-thewave-thin: "The Wave Thin", sans-serif;
+}
+
 #root {
   max-width: 1280px;
   margin: 0 auto;

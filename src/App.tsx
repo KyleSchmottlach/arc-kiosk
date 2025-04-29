@@ -2,12 +2,14 @@ import './App.css'
 import {createBrowserRouter, Outlet, RouterProvider} from "react-router";
 import HomePage from "./routes/HomePage.tsx";
 import Detectron2 from "./routes/Detectron2.tsx";
+import Navbar from "./elements/Navbar.tsx";
 
 function App() {
 
   function Root() {
     return (
-      <div>
+      <div className={"flex"}>
+        <Navbar />
         <Outlet />
       </div>
     );

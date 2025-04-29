@@ -1,21 +1,43 @@
 @import "tailwindcss";
 
 @font-face {
-  font-family: "The Wave";
+  font-family: "The Wave Regular";
   src:
-    local("The Wave"),
-    url("assets/TheWave-Regular-Trial.ttf") format("truetype");
+    url("assets/fonts/TheWave-Regular-Trial.ttf") format("truetype");
 }
 
+@font-face {
+  font-family: "The Wave Bold";
+  src:
+    url("assets/fonts/TheWave-Bold-Trial.ttf") format("truetype");
+}
+
+@font-face {
+  font-family: "The Wave DemiBold";
+  src:
+    url("assets/fonts/TheWave-DemiBold-Trial.ttf") format("truetype");
+}
+
+@font-face {
+  font-family: "The Wave Light";
+  src:
+    url("assets/fonts/TheWave-Light-Trial.ttf") format("truetype");
+}
+
+@font-face {
+  font-family: "The Wave Thin";
+  src:
+    url("assets/fonts/TheWave-Thin-Trial.ttf") format("truetype");
+}
 
 :root {
-  font-family: "The Wave", system-ui, Avenir, Helvetica, Arial, sans-serif;
+  font-family: "The Wave Regular", sans-serif;
   line-height: 1.5;
   font-weight: 400;
 
-  color-scheme: light dark;
-  color: rgba(255, 255, 255, 0.87);
-  background-color: #242424;
+  color-scheme: light;
+  color: var(--color-prim-arc-black);
+  background-color: var(--color-prim-arc-white);
 
   font-synthesis: none;
   text-rendering: optimizeLegibility;
@@ -29,7 +51,7 @@ a {
   text-decoration: inherit;
 }
 a:hover {
-  color: #535bf2;
+  color: #747bff;
 }
 
 body {
@@ -52,7 +74,7 @@ button {
   font-size: 1em;
   font-weight: 500;
   font-family: inherit;
-  background-color: #1a1a1a;
+  background-color: #f9f9f9;
   cursor: pointer;
   transition: border-color 0.25s;
 }
@@ -62,17 +84,4 @@ button:hover {
 button:focus,
 button:focus-visible {
   outline: 4px auto -webkit-focus-ring-color;
-}
-
-@media (prefers-color-scheme: light) {
-  :root {
-    color: #213547;
-    background-color: #ffffff;
-  }
-  a:hover {
-    color: #747bff;
-  }
-  button {
-    background-color: #f9f9f9;
-  }
 }
