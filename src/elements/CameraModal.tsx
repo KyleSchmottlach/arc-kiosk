@@ -1,19 +1,48 @@
-import {HTMLAttributes} from "react";
+import {HTMLAttributes, useCallback, useEffect, useRef, useState} from "react";
 import IconButton from "./IconButton.tsx";
 import CloseIcon from "./CloseIcon.tsx";
+import Webcam from "react-webcam";
+import ARCButton from "./ARCButton.tsx";
 
 export type CameraModalProps = {
   className?: HTMLAttributes<HTMLDivElement>['className'];
+  closeOnClick: () => void;
 }
 
 export default function CameraModal(props: CameraModalProps) {
+  const webcamRef = useRef<Webcam | null>(null);
+  const [capturedImage, setCapturedImage] = useState<string | null>(null);
+  
+  const videoConstraints: MediaTrackConstraints = {
+    facingMode: "environment",
+    width: 1920,
+    height: 1080,
+  };
+  
+  const capture = useCallback(() => {
+    if(webcamRef.current) setCapturedImage(webcamRef.current.getScreenshot({width: 1920, height: 1080}));
+  }, [webcamRef]);
+  
+  const onMediaStreamHandler = (media: MediaStream) => {
+    console.log(`Width: ${media.getVideoTracks()[0].getSettings().width}`);
+    console.log(`Height: ${media.getVideoTracks()[0].getSettings().height}`);
+  };
+  
+  useEffect(() => {
+    console.log(capturedImage);
+  }, [capturedImage]);
+  
   return (
-    <div className={`${props.className || ""}`}>
-      <div className={"fixed h-screen w-screen top-0 left-0 bg-prim-arc-black opacity-60"} style={{zIndex: 45}} onClick={() => console.log("Closing Modal")}/>
-      <div className={"fixed w-[60%] h-[60%] top-[50%] left-[50%] translate-[-50%] bg-prim-arc-white rounded-xl"} style={{zIndex: 50}}>
-        <IconButton className={"absolute top-0 left-0 m-2"} onClick={() => console.log("Closing Modal")} iconElement={<CloseIcon />}/>
-        <div className={"flex w-full h-full flex-col justify-center align-middle"}>
-        
+    <div className={`${props.className || "fixed w-screen h-screen p-4 top-0 left-0 z-50 flex justify-center items-center"}`}>
+      <div className={"fixed h-screen w-screen top-0 left-0 bg-prim-arc-black opacity-60"} style={{zIndex: 45}} onClick={props.closeOnClick}/>
+      <div className={"relative w-[60%] h-fit max-h-[calc(100vh-2rem)] bg-prim-arc-white rounded-xl z-50 flex flex-col justify-center items-center"}>
+        <IconButton className={"absolute self-start top-0 left-0 m-2"} onClick={props.closeOnClick} iconElement={<CloseIcon />}/>
+        <div className={"w-full h-fit overflow-scroll"}>
+          <div className={"flex w-full p-4 flex-col justify-center align-middle"}>
+            <Webcam onUserMedia={onMediaStreamHandler} mirrored disablePictureInPicture audio={false} ref={webcamRef} screenshotFormat="image/jpeg" className={"pb-4 w-[80%] mx-auto h-96"} videoConstraints={videoConstraints}/>
+            <ARCButton onClick={capture} className={"w-fit self-center"}>Take Photo</ARCButton>
+            {capturedImage ? <img alt={"Captured image"} src={capturedImage}/> : <></>}
+          </div>
         </div>
       </div>
     </div>

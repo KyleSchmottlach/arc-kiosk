@@ -5,6 +5,8 @@ export type ARCButtonProps = {
   className?: HTMLAttributes<HTMLButtonElement>['className'];
   children: string
   onClick: () => void;
+  icon?: boolean;
+  emphasized?: boolean;
 };
 
 export default function ARCButton(props: ARCButtonProps) {
@@ -17,8 +19,8 @@ export default function ARCButton(props: ARCButtonProps) {
       border-[3px]
       border-solid
       border-sec-arc-ctagreen
-      bg-prim-arc-white
-      text-sec-arc-ctagreen
+      ${props.emphasized ? 'bg-sec-arc-ctagreen' : 'bg-prim-arc-white'}
+      ${props.emphasized ? 'text-prim-arc-white' : 'text-sec-arc-ctagreen'}
       py-[0.6em]
       px-[1.2em]
       cursor-pointer
@@ -29,7 +31,7 @@ export default function ARCButton(props: ARCButtonProps) {
     }>
       <div className={"flex flex-row justify-between align-middle"}>
         {props.children}
-        <ButtonArrow className={"self-center ml-4"}/>
+        {props.icon ? <ButtonArrow className={"self-center ml-4"}/> : <></>}
       </div>
     </button>
   );
