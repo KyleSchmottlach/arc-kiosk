@@ -63,18 +63,19 @@ body {
 }
 
 button {
-  border-radius: 8px;
-  border: 1px solid transparent;
+  border: 3px solid var(--color-sec-arc-ctagreen);
+  background-color: var(--color-prim-arc-white);
+  color: var(--color-sec-arc-ctagreen);
   padding: 0.6em 1.2em;
-  font-size: 1em;
-  font-weight: 500;
   font-family: inherit;
-  background-color: #f9f9f9;
   cursor: pointer;
-  transition: border-color 0.25s;
+  transition: background-color 0.25s, color 0.25s, border-color 0.25s;
+
 }
 button:hover {
-  border-color: #646cff;
+  background-color: var(--color-sec-arc-copengreen);
+  color: var(--color-prim-arc-white);
+  border-color: var(--color-sec-arc-copengreen);
 }
 button:focus,
 button:focus-visible {

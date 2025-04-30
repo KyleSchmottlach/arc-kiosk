@@ -10,9 +10,9 @@ function App() {
     return (
       <>
         <Navbar />
-        <div className={"relative p-4 top-nav-height left-0 w-screen h-screen-height-nav"}>
+        <main className={"relative pt-4 pb-4 top-nav-height left-0 w-screen h-screen-height-nav"}>
           <Outlet />
-        </div>
+        </main>
       </>
     );
   }
