@@ -1,18 +1,26 @@
-import {HTMLAttributes, useCallback, useEffect, useRef, useState} from "react";
+import {HTMLAttributes, useCallback, useRef, useState} from "react";
 import IconButton from "./IconButton.tsx";
 import CloseIcon from "./CloseIcon.tsx";
 import Webcam from "react-webcam";
 import ARCButton from "./ARCButton.tsx";
-// import axios from "axios";
+import axios from "axios";
 
 export type CameraModalProps = {
   className?: HTMLAttributes<HTMLDivElement>['className'];
   closeOnClick: () => void;
 }
 
+type ResultsType = {
+  class: string;
+  score: number;
+  weight: number;
+};
+
 export default function CameraModal(props: CameraModalProps) {
   const webcamRef = useRef<Webcam | null>(null);
   const [capturedImage, setCapturedImage] = useState<string | null>(null);
+  const [processedImage, setProcessedImage] = useState<string | null>(null);
+  const [results, setResults] = useState<ResultsType[] | null>(null);
   
   const videoConstraints: MediaTrackConstraints = {
     facingMode: "environment",
@@ -30,17 +38,23 @@ export default function CameraModal(props: CameraModalProps) {
   };
   
   const handleUploadImage = () => {
-    // try {
-    //   axios.post()
-    // } catch (e) {
-    //
-    // }
-    
+    console.log(`${import.meta.env.VITE_BACKEND_URL}/api/detectron2`);
+    axios.post(`${import.meta.env.VITE_BACKEND_URL}/api/detectron2`, {
+      imageData: capturedImage
+    }, {
+      headers: {
+        "Content-Type": "application/json"
+      }
+    }).then(res => {
+      console.log(res.status);
+      console.log(res.data);
+      
+      setProcessedImage(res.data.image);
+      setResults(res.data.results);
+    }).catch(err => {
+      console.log(err);
+    });
   }
-  
-  useEffect(() => {
-    console.log(capturedImage);
-  }, [capturedImage]);
   
   return (
     <div className={`${props.className || "fixed w-screen h-screen p-4 top-0 left-0 z-50 flex justify-center items-center"}`}>
@@ -59,8 +73,13 @@ export default function CameraModal(props: CameraModalProps) {
                 <div className={"flex flex-row justify-center pt-6"}>
                   <ARCButton onClick={handleUploadImage} className={"w-fit"} emphasized>Submit Photo</ARCButton>
                   <div className={"h-0 px-[1%]"}/>
-                  <ARCButton onClick={() => setCapturedImage(null)} className={"w-fit"}>Retake Photo</ARCButton>
+                  <ARCButton onClick={() => {
+                    setCapturedImage(null);
+                    setProcessedImage(null);
+                    setResults(null);
+                  }} className={"w-fit"}>Retake Photo</ARCButton>
                 </div>
+                {processedImage ? <img alt={"Processed Image"} src={processedImage} className={"w-[80%] mx-auto pt-6"}/> : <></>}
               </>
             }
             

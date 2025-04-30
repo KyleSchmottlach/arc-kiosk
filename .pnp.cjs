@@ -30,6 +30,7 @@ const RAW_RUNTIME_STATE =
         "packageDependencies": [\
           ["@eslint/js", "npm:9.25.0"],\
           ["@tailwindcss/vite", "virtual:1d357d831b6d594859a6689d33d23bf21d129cae8c9be0832e64035573a6ee424d316e7bd6bfcc3530bd708746cc9c89f47ef40795f8baeead75799faaaa51b2#npm:4.1.4"],\
+          ["@types/node", "npm:22.15.3"],\
           ["@types/react", "npm:19.1.2"],\
           ["@types/react-dom", "virtual:1d357d831b6d594859a6689d33d23bf21d129cae8c9be0832e64035573a6ee424d316e7bd6bfcc3530bd708746cc9c89f47ef40795f8baeead75799faaaa51b2#npm:19.1.2"],\
           ["@vitejs/plugin-react", "virtual:1d357d831b6d594859a6689d33d23bf21d129cae8c9be0832e64035573a6ee424d316e7bd6bfcc3530bd708746cc9c89f47ef40795f8baeead75799faaaa51b2#npm:4.4.1"],\
@@ -2519,6 +2520,14 @@ const RAW_RUNTIME_STATE =
           ["undici-types", "npm:6.21.0"]\
         ],\
         "linkType": "HARD"\
+      }],\
+      ["npm:22.15.3", {\
+        "packageLocation": "../../../.yarn/berry/cache/@types-node-npm-22.15.3-ab71dd4f9d-10c0.zip/node_modules/@types/node/",\
+        "packageDependencies": [\
+          ["@types/node", "npm:22.15.3"],\
+          ["undici-types", "npm:6.21.0"]\
+        ],\
+        "linkType": "HARD"\
       }]\
     ]],\
     ["@types/react", [\
@@ -2870,6 +2879,7 @@ const RAW_RUNTIME_STATE =
         "packageDependencies": [\
           ["@eslint/js", "npm:9.25.0"],\
           ["@tailwindcss/vite", "virtual:1d357d831b6d594859a6689d33d23bf21d129cae8c9be0832e64035573a6ee424d316e7bd6bfcc3530bd708746cc9c89f47ef40795f8baeead75799faaaa51b2#npm:4.1.4"],\
+          ["@types/node", "npm:22.15.3"],\
           ["@types/react", "npm:19.1.2"],\
           ["@types/react-dom", "virtual:1d357d831b6d594859a6689d33d23bf21d129cae8c9be0832e64035573a6ee424d316e7bd6bfcc3530bd708746cc9c89f47ef40795f8baeead75799faaaa51b2#npm:19.1.2"],\
           ["@vitejs/plugin-react", "virtual:1d357d831b6d594859a6689d33d23bf21d129cae8c9be0832e64035573a6ee424d316e7bd6bfcc3530bd708746cc9c89f47ef40795f8baeead75799faaaa51b2#npm:4.4.1"],\
@@ -5665,7 +5675,7 @@ const RAW_RUNTIME_STATE =
           ["@types/jiti", null],\
           ["@types/less", null],\
           ["@types/lightningcss", null],\
-          ["@types/node", null],\
+          ["@types/node", "npm:22.15.3"],\
           ["@types/sass", null],\
           ["@types/sass-embedded", null],\
           ["@types/stylus", null],\
