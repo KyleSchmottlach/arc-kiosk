@@ -15,7 +15,7 @@
     "preview": "vite preview",
     "firebase:deploy:hosting": "turbo run build && firebase use default && firebase deploy --only hosting",
     "firebase:deploy:database": "firebase deploy --only database",
-    "gloud:deploy": "cd server && gcloud builds submit --tag gcr.io/arc-kiosk/backend && gcloud run deploy --image gcr.io/arc-kiosk/backend --platform managed"
+    "gloud:deploy": "cd server && gcloud builds submit --tag gcr.io/arc-kiosk/backend && gcloud run deploy backend --image gcr.io/arc-kiosk/backend --platform managed"
   },
   "dependencies": {
     "@tailwindcss/vite": "^4.1.4",
