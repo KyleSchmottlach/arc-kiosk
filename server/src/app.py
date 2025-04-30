@@ -42,10 +42,19 @@ def index():
 
 @app.route('/detectron2/detect', methods=['POST'])
 def detect_objects():
+    if request.method != 'POST':
+        return None
+
+    if request.mimetype != 'application/json':
+        return None
+
     # Get image from request
-    file = request.files['image']
-    img_bytes = file.read()
-    img_np = np.frombuffer(img_bytes, np.uint8)
+    image_data = request.json['imageData']
+
+    print(image_data)
+
+    return None
+
     im = cv2.imdecode(img_np, cv2.IMREAD_COLOR)
 
     # Perform detection
@@ -60,7 +69,7 @@ def detect_objects():
     if len(filtered_instances) > 0:
         filtered_scores = filtered_instances.scores
         filtered_classes = filtered_instances.pred_classes
-        
+
         for class_id, score in zip(filtered_classes, filtered_scores):
             idx = class_ids.index(class_id.item())
             results.append({
