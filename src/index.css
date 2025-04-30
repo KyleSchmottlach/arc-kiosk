@@ -62,21 +62,6 @@ body {
   min-height: 100vh;
 }
 
-button {
-  border: 3px solid var(--color-sec-arc-ctagreen);
-  background-color: var(--color-prim-arc-white);
-  color: var(--color-sec-arc-ctagreen);
-  padding: 0.6em 1.2em;
-  font-family: inherit;
-  cursor: pointer;
-  transition: background-color 0.25s, color 0.25s, border-color 0.25s;
-
-}
-button:hover {
-  background-color: var(--color-sec-arc-copengreen);
-  color: var(--color-prim-arc-white);
-  border-color: var(--color-sec-arc-copengreen);
-}
 button:focus,
 button:focus-visible {
   outline: 4px auto -webkit-focus-ring-color;

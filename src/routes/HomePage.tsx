@@ -5,12 +5,13 @@ import {useCallback, useEffect, useRef, useState} from "react";
 import ARCButton from "../elements/ARCButton.tsx";
 
 export default function HomePage() {
+  const webcamRef = useRef<Webcam | null>(null);
+  const [capturedImage, setCapturedImage] = useState<string | null>(null);
+  const [registering, setRegistering] = useState<boolean>(false);
+  
   const videoConstraints: MediaTrackConstraints = {
     facingMode: "environment",
   };
-  
-  const webcamRef = useRef<Webcam | null>(null);
-  const [capturedImage, setCapturedImage] = useState<string | null>(null);
   
   const capture = useCallback(() => {
     if(webcamRef.current) setCapturedImage(webcamRef.current.getScreenshot());
@@ -19,6 +20,10 @@ export default function HomePage() {
   useEffect(() => {
     console.log(capturedImage);
   }, [capturedImage]);
+  
+  useEffect(() => {
+    console.log(registering);
+  }, [registering]);
   
   return (
     <div className={"flex flex-col w-full h-full justify-center align-middle"}>
@@ -30,7 +35,7 @@ export default function HomePage() {
             <h1 className={"font-bold text-3xl w-fit"}>Item Registration</h1>
             <DividerBar />
             <p className={"w-fit"}><b>CHANGE THIS</b> Use this site to register items taken</p>
-            <ARCButton onClick={() => {}} className={"w-fit mt-6"}>Click to Register</ARCButton>
+            <ARCButton onClick={() => {setRegistering(true)}} className={"w-fit mt-6"}>Click to Register</ARCButton>
           </div>
           <div className={"w-[50%]"}>
             <img alt={"Picture of an ARC Reuse Center"} src={ReuseCenter} className={"grow"} style={{justifyContent: "inherit", alignContent: "inherit"}}/>

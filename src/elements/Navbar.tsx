@@ -2,7 +2,7 @@ import arcLogo from "../assets/images/arc-logo-dark.png";
 
 export default function Navbar() {
   return (
-    <header className={"fixed z-50 top-0 left-0 w-full drop-shadow-lg/25"}>
+    <header className={"fixed z-40 top-0 left-0 w-full drop-shadow-lg/25"}>
       {/*Primary Navbar*/}
       <div className={"bg-sec-arc-copengreen w-full h-12"}>
       
