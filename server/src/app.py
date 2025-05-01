@@ -70,7 +70,7 @@ def detect_objects():
         outputs = predictor(im)
         filtered_instances = outputs["instances"].to("cpu")
         class_ids_tensor = torch.tensor(class_ids)
-        mask = torch.any(filtered_instances.pred_classes[:, None] == class_ids_tensor[None, :], dim=1)
+        mask = torch.any(torch.as_tensor(filtered_instances.pred_classes[:, None] == class_ids_tensor[None, :]), dim=1)
         filtered_instances = filtered_instances[mask]
 
         # Process results
