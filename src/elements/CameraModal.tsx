@@ -4,6 +4,7 @@ import CloseIcon from "./CloseIcon.tsx";
 import Webcam from "react-webcam";
 import ARCButton from "./ARCButton.tsx";
 import axios from "axios";
+import Spinner from "./Spinner.tsx";
 
 export type CameraModalProps = {
   className?: HTMLAttributes<HTMLDivElement>['className'];
@@ -21,6 +22,7 @@ export default function CameraModal(props: CameraModalProps) {
   const [capturedImage, setCapturedImage] = useState<string | null>(null);
   const [processedImage, setProcessedImage] = useState<string | null>(null);
   const [results, setResults] = useState<ResultsType[] | null>(null);
+  const [processing, setProcessing] = useState<boolean>(false);
   
   const videoConstraints: MediaTrackConstraints = {
     facingMode: "environment",
@@ -32,27 +34,24 @@ export default function CameraModal(props: CameraModalProps) {
     if(webcamRef.current) setCapturedImage(webcamRef.current.getScreenshot({width: 1920, height: 1080}));
   }, [webcamRef]);
   
-  const onMediaStreamHandler = (media: MediaStream) => {
-    console.log(`Width: ${media.getVideoTracks()[0].getSettings().width}`);
-    console.log(`Height: ${media.getVideoTracks()[0].getSettings().height}`);
-  };
-  
   const handleUploadImage = () => {
-    console.log(`${import.meta.env.VITE_BACKEND_URL}/api/detectron2`);
-    axios.post(`${import.meta.env.VITE_BACKEND_URL}/api/detectron2`, {
+    const reqURL = import.meta.env.PROD ? "/api/detectron2" : `${import.meta.env.VITE_BACKEND_URL}/api/detectron2`;
+    
+    setProcessing(true);
+    
+    axios.post(reqURL, {
       imageData: capturedImage
     }, {
       headers: {
         "Content-Type": "application/json"
       }
     }).then(res => {
-      console.log(res.status);
-      console.log(res.data);
-      
       setProcessedImage(res.data.image);
       setResults(res.data.results);
+      setProcessing(false);
     }).catch(err => {
       console.log(err);
+      setProcessing(false);
     });
   }
   
@@ -65,19 +64,19 @@ export default function CameraModal(props: CameraModalProps) {
           <div className={"flex w-full p-8 flex-col justify-center align-middle"}>
             { !capturedImage ?
               <>
-                <Webcam onUserMedia={onMediaStreamHandler} mirrored disablePictureInPicture audio={false} ref={webcamRef} screenshotFormat="image/jpeg" className={"pb-4 w-[80%] mx-auto"} videoConstraints={videoConstraints}/>
+                <Webcam mirrored disablePictureInPicture audio={false} ref={webcamRef} screenshotFormat="image/jpeg" className={"pb-4 w-[80%] mx-auto"} videoConstraints={videoConstraints}/>
                 <ARCButton onClick={capture} className={"w-fit self-center"}>Take Photo</ARCButton>
               </> :
               <>
                 <img alt={"Captured Image"} src={capturedImage} className={"w-[80%] mx-auto pt-6"}/>
                 <div className={"flex flex-row justify-center pt-6"}>
-                  <ARCButton onClick={handleUploadImage} className={"w-fit"} emphasized>Submit Photo</ARCButton>
+                  <ARCButton onClick={handleUploadImage} className={"w-fit"} disabled={processing} emphasized>{processing ? <Spinner /> : "Submit Photo"}</ARCButton>
                   <div className={"h-0 px-[1%]"}/>
                   <ARCButton onClick={() => {
                     setCapturedImage(null);
                     setProcessedImage(null);
                     setResults(null);
-                  }} className={"w-fit"}>Retake Photo</ARCButton>
+                  }} className={"w-fit"} disabled={processing}>Retake Photo</ARCButton>
                 </div>
                 {processedImage ? <img alt={"Processed Image"} src={processedImage} className={"w-[80%] mx-auto pt-6"}/> : <></>}
               </>

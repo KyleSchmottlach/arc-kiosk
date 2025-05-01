@@ -3,31 +3,31 @@
 @font-face {
   font-family: "The Wave Regular";
   src:
-    url("assets/fonts/TheWave-Regular-Trial.ttf") format("truetype");
+    url("assets/fonts/TheWave-Rg.ttf") format("truetype");
 }
 
 @font-face {
   font-family: "The Wave Bold";
   src:
-    url("assets/fonts/TheWave-Bold-Trial.ttf") format("truetype");
+    url("assets/fonts/TheWave-Bd.ttf") format("truetype");
 }
 
 @font-face {
   font-family: "The Wave DemiBold";
   src:
-    url("assets/fonts/TheWave-DemiBold-Trial.ttf") format("truetype");
+    url("assets/fonts/TheWave-DBd.ttf") format("truetype");
 }
 
 @font-face {
   font-family: "The Wave Light";
   src:
-    url("assets/fonts/TheWave-Light-Trial.ttf") format("truetype");
+    url("assets/fonts/TheWave-Lt.ttf") format("truetype");
 }
 
 @font-face {
   font-family: "The Wave Thin";
   src:
-    url("assets/fonts/TheWave-Thin-Trial.ttf") format("truetype");
+    url("assets/fonts/TheWave-Tn.ttf") format("truetype");
 }
 
 :root {

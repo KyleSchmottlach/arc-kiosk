@@ -1,6 +1,6 @@
 import DividerBar from "../elements/DividerBar.tsx";
 import ReuseCenter from "../assets/images/ReuseCenter.png";
-import {useEffect, useState} from "react";
+import {useState} from "react";
 import ARCButton from "../elements/ARCButton.tsx";
 import CameraModal from "../elements/CameraModal.tsx";
 
@@ -12,9 +12,9 @@ export default function HomePage() {
       <div>
         <div className={"flex flex-row items-center w-[80%] mr-auto ml-auto"}>
           <div className={"flex flex-col w-[50%] justify-start"}>
-            <h1 className={"font-bold text-3xl w-fit"}>Item Registration</h1>
+            <h1 className={"font-thewave-bold text-3xl w-fit"}>Item Registration</h1>
             <DividerBar />
-            <p className={"w-fit"}><b>CHANGE THIS</b> Use this site to register items taken</p>
+            <p className={"w-fit"}>CHANGE THIS Use this site to register items taken</p>
             <ARCButton onClick={() => {setRegistering(true)}} className={"w-fit mt-6"} icon>Click to Register</ARCButton>
           </div>
           <div className={"w-[50%]"}>
