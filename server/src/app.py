@@ -1,7 +1,5 @@
 # connect to a database to register the info
 # give the user the ability to register the material type
-import string
-
 import flask
 from flask import Flask, request, jsonify
 from flask_cors import CORS
