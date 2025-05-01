@@ -7,10 +7,6 @@ import CameraModal from "../elements/CameraModal.tsx";
 export default function HomePage() {
   const [registering, setRegistering] = useState<boolean>(false);
   
-  useEffect(() => {
-    console.log(registering);
-  }, [registering]);
-  
   return (
     <div className={"flex flex-col w-full h-full justify-center align-middle"}>
       <div>

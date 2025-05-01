@@ -14,7 +14,7 @@ dist-ssr
 .turbo
 build
 
-.env
+.env*
 
 # Editor directories and files
 .vscode/*

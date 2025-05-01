@@ -20,7 +20,7 @@ import base64
 
 app = Flask(__name__)
 
-CORS(app, origins=['http://localhost:5173'])
+CORS(app, origins=['http://localhost:5173', 'https://arc-kiosk.web.app/', 'https://arc-kiosk.firebaseapp.com/'])
 
 # Initialize Detectron2 model once
 cfg = get_cfg()
