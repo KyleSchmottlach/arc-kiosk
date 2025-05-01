@@ -3,7 +3,7 @@
 import string
 
 import flask
-from flask import Flask, render_template, request, jsonify, send_file
+from flask import Flask, request, jsonify
 from flask_cors import CORS
 import cv2
 import torch
@@ -13,8 +13,6 @@ from detectron2.config import get_cfg
 from detectron2.engine import DefaultPredictor
 from detectron2.utils.visualizer import Visualizer
 from detectron2.data import MetadataCatalog
-from PIL import Image
-import io
 import os
 import base64
 

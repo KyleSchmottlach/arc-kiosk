@@ -1,7 +1,6 @@
 import './App.css'
 import {createBrowserRouter, Outlet, RouterProvider} from "react-router";
 import HomePage from "./routes/HomePage.tsx";
-import Detectron2 from "./routes/Detectron2.tsx";
 import Navbar from "./elements/Navbar.tsx";
 
 function App() {
@@ -26,10 +25,6 @@ function App() {
         {
           path: "",
           element: <HomePage />
-        },
-        {
-          path: "detectron2",
-          element: <Detectron2 />
         }
       ]
     }
