@@ -10,14 +10,14 @@ export default function HomePage() {
   return (
     <div className={"flex flex-col w-full h-full justify-center align-middle"}>
       <div>
-        <div className={"flex flex-row items-center w-[80%] mr-auto ml-auto"}>
-          <div className={"flex flex-col w-[50%] justify-start"}>
+        <div className={"flex md:flex-row flex-col items-center w-[80%] mr-auto ml-auto"}>
+          <div className={"flex flex-col md:w-[50%] w-[80%] md:justify-start md:items-start items-center"}>
             <h1 className={"font-thewave-bold text-3xl w-fit"}>Item Registration</h1>
             <DividerBar />
             <p className={"w-fit"}>CHANGE THIS Use this site to register items taken</p>
             <ARCButton onClick={() => {setRegistering(true)}} className={"w-fit mt-6"} icon>Click to Register</ARCButton>
           </div>
-          <div className={"w-[50%]"}>
+          <div className={"md:w-[50%] w-[80%] md:ml-4 md:mt-0 ml-0 mt-8"}>
             <img alt={"Picture of an ARC Reuse Center"} src={ReuseCenter} className={"grow"} style={{justifyContent: "inherit", alignContent: "inherit"}}/>
           </div>
         </div>

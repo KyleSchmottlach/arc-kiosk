@@ -8,8 +8,8 @@ function App() {
   function Root() {
     return (
       <>
-        <Navbar />
-        <main className={"relative pt-4 pb-4 top-nav-height left-0 w-screen h-screen-height-nav"}>
+        <Navbar className={"min-w-[350px]"}/>
+        <main className={"min-w-[350px] relative pt-4 pb-4 top-nav-height left-0 w-screen h-screen-height-nav"}>
           <Outlet />
         </main>
       </>
