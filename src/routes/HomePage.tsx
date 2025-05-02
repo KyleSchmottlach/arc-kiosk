@@ -14,8 +14,8 @@ export default function HomePage() {
           <div className={"flex flex-col md:w-[50%] w-[80%] md:justify-start md:items-start items-center"}>
             <h1 className={"font-thewave-bold text-3xl w-fit"}>Item Registration</h1>
             <DividerBar />
-            <p className={"w-fit"}>CHANGE THIS Use this site to register items taken</p>
-            <ARCButton onClick={() => {setRegistering(true)}} className={"w-fit mt-6"} icon>Click to Register</ARCButton>
+            <p className={"w-fit"}>Use this site to register items taken</p>
+            <ARCButton onClick={() => {setRegistering(true)}} className={"w-fit mt-6"} icon>Register Items</ARCButton>
           </div>
           <div className={"md:w-[50%] w-[80%] md:ml-4 md:mt-0 ml-0 mt-8"}>
             <img alt={"Picture of an ARC Reuse Center"} src={ReuseCenter} className={"grow"} style={{justifyContent: "inherit", alignContent: "inherit"}}/>
