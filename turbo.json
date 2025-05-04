@@ -9,8 +9,8 @@
     "check-types": {
       "dependsOn": ["^check-types"]
     },
-    "dev": {
-      "dependsOn": ["^dev"],
+    "dev-linux": {
+      "dependsOn": ["^dev-linux"],
       "persistent": true,
       "cache": false
     }
