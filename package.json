@@ -15,16 +15,24 @@
     "preview": "vite preview",
     "firebase:deploy:hosting": "turbo run build && firebase use default && firebase deploy --only hosting",
     "firebase:deploy:database": "firebase deploy --only database",
-    "gloud:deploy": "cd server && gcloud builds submit --tag gcr.io/arc-kiosk/backend && gcloud run deploy --image gcr.io/arc-kiosk/backend --platform managed"
+    "gloud:deploy": "cd server && gcloud builds submit --tag gcr.io/arc-kiosk/backend && gcloud run deploy backend --image gcr.io/arc-kiosk/backend --platform managed"
   },
   "dependencies": {
+    "@tailwindcss/vite": "^4.1.4",
     "axios": "^1.9.0",
     "firebase": "^11.6.0",
+    "framer-motion": "^12.9.2",
     "react": "^19.0.0",
-    "react-dom": "^19.0.0"
+    "react-dom": "^19.0.0",
+    "react-router": "^7.5.2",
+    "react-webcam": "^7.2.0",
+    "tailwindcss": "^4.1.4"
   },
   "devDependencies": {
     "@eslint/js": "^9.22.0",
+    "@headlessui/react": "^2.2.2",
+    "@heroicons/react": "^2.2.0",
+    "@types/node": "^22.15.3",
     "@types/react": "^19.0.10",
     "@types/react-dom": "^19.0.4",
     "@vitejs/plugin-react": "^4.3.4",
@@ -40,5 +48,5 @@
     "typescript-eslint": "^8.26.1",
     "vite": "^6.3.2"
   },
-  "packageManager": "yarn@4.6.0"
+  "packageManager": "yarn@4.9.1"
 }

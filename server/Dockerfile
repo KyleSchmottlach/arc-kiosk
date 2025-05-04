@@ -1,8 +1,10 @@
 FROM python:3.13
 
-RUN pip3 install torch torchvision torchaudio --index-url https://download.pytorch.org/whl/cu118
-RUN pip3 install opencv-python-headless Flask pillow numpy gunicorn cython
-RUN pip3 install --no-build-isolation 'git+https://github.com/facebookresearch/detectron2.git'
+RUN pip3 install --upgrade pip --root-user-action=ignore
+
+RUN pip3 install torch torchvision torchaudio --index-url https://download.pytorch.org/whl/cu118 --root-user-action=ignore
+RUN pip3 install opencv-python-headless Flask pillow numpy gunicorn cython flask_cors --root-user-action=ignore
+RUN pip3 install --no-build-isolation 'git+https://github.com/facebookresearch/detectron2.git' --root-user-action=ignore
 
 ENV APP_HOME app/
 

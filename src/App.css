@@ -1,42 +1,42 @@
+@import "tailwindcss";
+
+@theme {
+  --color-prim-arc-black: #000000;
+  --color-prim-arc-white: #ffffff;
+  --color-sec-arc-grey: #b2b1b0;
+  --color-sec-arc-lightgrey: #dad7d5;
+  --color-sec-arc-purple: #3a1f57;
+  --color-sec-arc-copengreen: #004030;
+  --color-sec-arc-ctagreen: #00854b;
+  --color-sec-arc-lightgreen: #00aa5f;
+  --color-sec-arc-lightblue: #00b4e3;
+  --color-sec-arc-ctablue: #002699;
+  --color-sec-arc-orange: #ff4600;
+  --color-sec-arc-yellow: #ffc800;
+  --color-sec-arc-violet: #5a4b9b;
+  --color-sec-arc-pink: #ff9baa;
+  --color-sec-arc-brown: #4F2424;
+  --color-sec-arc-silver: #8a8d8f;
+  --color-acc-green: #4AAE48;
+  --color-acc-yellow: #ffd635;
+  --color-acc-orange: #ff8f6c;
+
+  --font-thewave-regular: "The Wave Regular", sans-serif;
+  --font-thewave-bold: "The Wave Bold", sans-serif;
+  --font-thewave-demibold: "The Wave DemiBold", sans-serif;
+  --font-thewave-light: "The Wave Light", sans-serif;
+  --font-thewave-thin: "The Wave Thin", sans-serif;
+
+  --nav-height: 8rem;
+  --screen-height-nav: calc(100vh - var(--nav-height));
+
+  --spacing-nav-height: var(--nav-height);
+  --spacing-screen-height-nav: var(--screen-height-nav);
+}
+
 #root {
-  max-width: 1280px;
   margin: 0 auto;
-  padding: 2rem;
+  width: 100vw;
+  height: 100vh;
   text-align: center;
-}
-
-.logo {
-  height: 6em;
-  padding: 1.5em;
-  will-change: filter;
-  transition: filter 300ms;
-}
-.logo:hover {
-  filter: drop-shadow(0 0 2em #646cffaa);
-}
-.logo.react:hover {
-  filter: drop-shadow(0 0 2em #61dafbaa);
-}
-
-@keyframes logo-spin {
-  from {
-    transform: rotate(0deg);
-  }
-  to {
-    transform: rotate(360deg);
-  }
-}
-
-@media (prefers-reduced-motion: no-preference) {
-  a:nth-of-type(2) .logo {
-    animation: logo-spin infinite 20s linear;
-  }
-}
-
-.card {
-  padding: 2em;
-}
-
-.read-the-docs {
-  color: #888;
 }
