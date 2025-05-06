@@ -19,6 +19,12 @@ function Install-Node {
     fnm default 23
 }
 
+$workingDir = "$(Split-Path $MyInvocation.MyCommand.Path)"
+
+Set-Location -LiteralPath $workingDir -Verbose
+
+Get-Location -Verbose
+
 Set-Location ..
 
 #Install Python
