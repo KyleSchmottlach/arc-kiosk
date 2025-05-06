@@ -79,3 +79,5 @@ if(!$nodeInstalled) {
 corepack enable yarn
 yarn set version stable
 yarn install
+
+Read-Host -Prompt "Press Enter to exit"
