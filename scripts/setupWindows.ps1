@@ -10,7 +10,7 @@ function Install-Node {
         winget install Schniz.fnm
         if (-not (Test-Path $profile)) { New-Item $profile -Force }
 
-        Add-Content --Path "$HOME\Documents\PowerShell\Microsoft.PowerShell_profile.ps1" --Value "fnm env --use-on-cd --shell powershell | Out-String | Invoke-Expression"
+        Add-Content -Path "$HOME\Documents\PowerShell\Microsoft.PowerShell_profile.ps1" -Value "fnm env --use-on-cd --shell powershell | Out-String | Invoke-Expression"
     }
 
     RefreshEnv
@@ -23,9 +23,9 @@ Set-Location ..
 
 #Install Python
 $targetVersion = "3.13"
-$pythonInstalled = Get-Command python -ErrorAction SilentlyContinue
+$pythonInstalled = where.exe python
 
-if (!$pythonInstalled) {
+if (!$? -or $pythonInstalled -match "AppData\Local\Microsoft\WindowsApps\python.exe") {
     Write-Output "Python not installed. Installing using winget..."
     winget install Python.Python.3.13
 } else {
@@ -42,7 +42,7 @@ if (!$pythonInstalled) {
 
 winget install Microsoft.VisualStudio.2022.BuildTools --force --override "--wait --passive --add Microsoft.VisualStudio.Component.VC.Tools.x86.x64 --add Microsoft.VisualStudio.Component.Windows11SDK.26100 --add Microsoft.VisualStudio.Component.VC.CMake.Project"
 
-if(!(Test-Path "./.venv")) {
+if(Test-Path "./.venv") {
     Remove-Item "./.venv"
 }
 
