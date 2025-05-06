@@ -25,7 +25,7 @@ Set-Location ..
 $targetVersion = "3.13"
 $pythonInstalled = where.exe python
 
-if (!$? -or $pythonInstalled -match "AppData\Local\Microsoft\WindowsApps\python.exe") {
+if (!($?) -or ($pythonInstalled -match "AppData\\Local\\Microsoft\\WindowsApps\\python.exe")) {
     Write-Output "Python not installed. Installing using winget..."
     winget install Python.Python.3.13
 } else {
