@@ -41,9 +41,9 @@ The setupWindows.ps1 script only needs to be run once on project setup before th
 is run for the first time. It is not necessary to run the script multiple times if
 it succeeded.
 
-## Linux/MacOS Build Instructions
+## Linux Build Instructions
 
-To install the dependencies for the project on a Linux/MacOS system, please run the
+To install the dependencies for the project on a Linux system, please run the
 [setupLinux.ps1](scripts/setupLinux.sh) script in the terminal application. This can be 
 done by opening a new terminal window, using the `cd` command to navigate to the 
 scripts folder and first running the following command: 
@@ -53,7 +53,7 @@ sudo chmod +x setupLinux.sh && ./setupLinux.sh
 `
 
 Once the script finishes installing, run the following command from the top level
-project directory or open the script named `startLinuxMax.sh` to run the code:
+project directory or open the script named `startLinux.sh` to run the code:
 
 `
 yarn run turbo run dev-linux
