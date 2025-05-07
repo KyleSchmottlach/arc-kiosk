@@ -8,7 +8,7 @@ import { getAnalytics } from "firebase/analytics";
 // Your web app's Firebase configuration
 // For Firebase JS SDK v7.20.0 and later, measurementId is optional
 const firebaseConfig: FirebaseOptions = {
-  apiKey: "AIzaSyB4SPjzVBdXhRQQVSMKildiPCiaT4pdMcI",
+  apiKey: import.meta.env.VITE_FIREBASE_API_KEY,
   authDomain: "arc-kiosk.firebaseapp.com",
   projectId: "arc-kiosk",
   storageBucket: "arc-kiosk.firebasestorage.app",
