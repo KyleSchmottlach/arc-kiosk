@@ -1,0 +1,1 @@
+yarn run turbo run dev-windows
