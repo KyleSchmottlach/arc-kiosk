@@ -14,6 +14,8 @@ from detectron2.data import MetadataCatalog
 import os
 import base64
 
+os.environ["HOME"] = os.path.expanduser("~")
+
 app = Flask(__name__)
 
 CORS(app, origins=['http://localhost:5173', 'https://arc-kiosk.web.app/', 'https://arc-kiosk.firebaseapp.com/'])
