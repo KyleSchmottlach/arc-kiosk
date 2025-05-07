@@ -11,6 +11,7 @@ function Install-Node {
         if (-not (Test-Path $profile)) { New-Item $profile -Force }
 
         Add-Content -Path "$HOME\Documents\PowerShell\Microsoft.PowerShell_profile.ps1" -Value "fnm env --use-on-cd --shell powershell | Out-String | Invoke-Expression"
+        .\$HOME\Documents\PowerShell\Microsoft.PowerShell_profile.ps1
     }
 
     RefreshEnv
@@ -48,8 +49,6 @@ if (!($?) -or ($pythonInstalled -match "AppData\\Local\\Microsoft\\WindowsApps\\
 
 RefreshEnv
 
-where.exe python
-
 winget install Microsoft.VisualStudio.2022.BuildTools --force --override "--wait --passive --add Microsoft.VisualStudio.Component.VC.Tools.x86.x64 --add Microsoft.VisualStudio.Component.Windows11SDK.26100 --add Microsoft.VisualStudio.Component.VC.CMake.Project"
 
 if(Test-Path "./.venv") {
@@ -85,6 +84,10 @@ if(!$nodeInstalled) {
         }
     }
 }
+
+RefreshEnv
+
+node --version
 
 corepack enable yarn
 yarn set version stable
