@@ -13,6 +13,11 @@
       "dependsOn": ["^dev-linux"],
       "persistent": true,
       "cache": false
+    },
+    "dev-windows": {
+      "dependsOn": ["^dev-windows"],
+      "persistent": true,
+      "cache": false
     }
   }
 }

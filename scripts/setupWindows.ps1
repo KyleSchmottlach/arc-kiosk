@@ -2,8 +2,6 @@ function RefreshEnv {
     $userpath = [System.Environment]::GetEnvironmentVariable("Path","User")
     $machinePath = [System.Environment]::GetEnvironmentVariable("Path","Machine")
     $env:Path = $userpath + ";" + $machinePath + ";$HOME\AppData\Local\Microsoft\WinGet\Packages\Schniz.fnm_Microsoft.Winget.Source_8wekyb3d8bbwe\"
-
-    Write-Output $env:PATH
 }
 
 function Install-Node {
@@ -105,4 +103,4 @@ Start-Process -Wait pwsh -ArgumentList "-Command", {
     yarn install
 }.ToString()
 
-Read-Host -Prompt "Press Enter to exit"
+Read-Host -Prompt "Setup complete! Press Enter to exit"

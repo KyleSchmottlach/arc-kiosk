@@ -6,9 +6,11 @@
   "scripts": {
     "turbo-build": "turbo run build",
     "turbo-dev-linux": "turbo run dev-linux",
-    "dev-linux": "concurrently --kill-others-on-fail \"yarn run dev-frontend-linux\" \"yarn run dev-backend-linux\"",
-    "dev-frontend-linux": "vite",
+    "dev-linux": "concurrently --kill-others-on-fail \"yarn run dev-frontend\" \"yarn run dev-backend-linux\"",
+    "dev-frontend": "vite",
     "dev-backend-linux": ".venv/bin/python server/src/app.py",
+    "dev-backend-windows": "./.venv/Scripts/python.exe server/src/app.py",
+    "dev-windows": "concurrently --kill-others-on-fail \"yarn run dev-frontend\" \"yarn run dev-backend-windows\"",
     "build": "vite build",
     "check-types": "tsc -b --noEmit",
     "lint": "eslint .",
