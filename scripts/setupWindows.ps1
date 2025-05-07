@@ -28,11 +28,18 @@ Get-Location -Verbose
 
 Set-Location ..
 
+where.exe git
+
+if(!($?)) {
+    Write-Output "Git not installed. Installing using winget..."
+    winget install --id Git.Git -e --source winget
+}
+
 #Install Python
 $targetVersion = "3.13"
-$pythonInstalled = where.exe python
+$pythonInstalled = ((Get-Command python -ErrorAction SilentlyContinue | Select-Object -Property Source | Format-Table | Out-String) -split "\n")[3]
 
-if (!($?) -or ($pythonInstalled -match "AppData\\Local\\Microsoft\\WindowsApps\\python.exe")) {
+if (!($?) -or !($pythonInstalled) -or ($pythonInstalled -match "AppData\\Local\\Microsoft\\WindowsApps\\python.exe")) {
     Write-Output "Python not installed. Installing using winget..."
     winget install Python.Python.3.13
 } else {
