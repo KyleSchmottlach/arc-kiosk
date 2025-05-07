@@ -11,6 +11,9 @@ function Install-Node {
         if (-not (Test-Path $profile)) { New-Item $profile -Force }
 
         Add-Content -Path "$HOME\Documents\PowerShell\Microsoft.PowerShell_profile.ps1" -Value "fnm env --use-on-cd --shell powershell | Out-String | Invoke-Expression"
+
+        $env:PATH += ";$HOME\AppData\Local\Microsoft\WinGet\Packages\Schniz.fnm_Microsoft.Winget.Source_8wekyb3d8bbwe\"
+
         Invoke-Expression (&fnm env --use-on-cd)
     }
 
