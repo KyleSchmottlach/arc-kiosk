@@ -1,5 +1,8 @@
 # connect to a database to register the info
 # give the user the ability to register the material type
+import os
+os.environ["HOME"] = os.path.expanduser("~")
+
 import flask
 from flask import Flask, request, jsonify
 from flask_cors import CORS
@@ -11,10 +14,7 @@ from detectron2.config import get_cfg
 from detectron2.engine import DefaultPredictor
 from detectron2.utils.visualizer import Visualizer
 from detectron2.data import MetadataCatalog
-import os
 import base64
-
-os.environ["HOME"] = os.path.expanduser("~")
 
 app = Flask(__name__)
 
