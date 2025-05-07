@@ -72,7 +72,7 @@ python -m venv .venv
 python -m pip install --upgrade pip
 
 pip install torch torchvision torchaudio --index-url https://download.pytorch.org/whl/cu118
-pip install opencv-python-headless Flask pillow numpy gunicorn cython flask_cors
+pip install opencv-python-headless Flask pillow numpy gunicorn cython flask_cors matplotlib
 pip install --no-build-isolation 'git+https://github.com/facebookresearch/detectron2.git'
 
 $targetNodeVersion = "23"
