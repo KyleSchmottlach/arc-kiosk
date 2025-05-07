@@ -19,9 +19,11 @@ function Install-Node {
 
     RefreshEnv
 
-    fnm install 23
-    fnm default 23
-    fnm use default
+    Start-Process pwsh -ArgumentList "-NoExit" {
+        fnm install 23
+        fnm default 23
+        fnm use default
+    }
 }
 
 $workingDir = "$(Split-Path $MyInvocation.MyCommand.Path)"
@@ -95,10 +97,12 @@ if(!$nodeInstalled) {
     }
 }
 
-node --version
+Start-Process pwsh -ArgumentList "-NoExit" {
+    node --version
 
-corepack enable yarn
-yarn set version stable
-yarn install
+    corepack enable yarn
+    yarn set version stable
+    yarn install
+}
 
 Read-Host -Prompt "Press Enter to exit"
