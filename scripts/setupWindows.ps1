@@ -62,7 +62,7 @@ RefreshEnv
 winget install Microsoft.VisualStudio.2022.BuildTools --force --override "--wait --passive --add Microsoft.VisualStudio.Component.VC.Tools.x86.x64 --add Microsoft.VisualStudio.Component.Windows11SDK.26100 --add Microsoft.VisualStudio.Component.VC.CMake.Project"
 
 if(Test-Path "./.venv") {
-    Remove-Item "./.venv"
+    Remove-Item -Recurse "./.venv"
 }
 
 python -m venv .venv
