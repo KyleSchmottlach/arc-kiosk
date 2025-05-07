@@ -23,7 +23,7 @@ function Install-Node {
         fnm install 23
         fnm default 23
         fnm use default
-    }
+    }.ToString()
 }
 
 $workingDir = "$(Split-Path $MyInvocation.MyCommand.Path)"
@@ -103,6 +103,6 @@ Start-Process pwsh -ArgumentList "-NoExit" {
     corepack enable yarn
     yarn set version stable
     yarn install
-}
+}.ToString()
 
 Read-Host -Prompt "Press Enter to exit"
