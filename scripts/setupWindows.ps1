@@ -19,7 +19,7 @@ function Install-Node {
 
     RefreshEnv
 
-    Start-Process pwsh -ArgumentList "-NoExit", "-Wait", "-Command", {
+    Start-Process -Wait pwsh -ArgumentList "-Command", {
         fnm install 23
         fnm default 23
         fnm use default
@@ -97,7 +97,7 @@ if(!$nodeInstalled) {
     }
 }
 
-Start-Process pwsh -ArgumentList "-NoExit", "-Wait", "-Command", {
+Start-Process -Wait pwsh -ArgumentList "-Command", {
     node --version
 
     corepack enable yarn
