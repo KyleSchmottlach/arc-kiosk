@@ -2,6 +2,8 @@ function RefreshEnv {
     $userpath = [System.Environment]::GetEnvironmentVariable("Path","User")
     $machinePath = [System.Environment]::GetEnvironmentVariable("Path","Machine")
     $env:Path = $userpath + ";" + $machinePath + ";$HOME\AppData\Local\Microsoft\WinGet\Packages\Schniz.fnm_Microsoft.Winget.Source_8wekyb3d8bbwe\"
+
+    Write-Output $env:PATH
 }
 
 function Install-Node {
