@@ -24,15 +24,14 @@ $workingDir = "$(Split-Path $MyInvocation.MyCommand.Path)"
 
 Set-Location -LiteralPath $workingDir -Verbose
 
-Get-Location -Verbose
-
 Set-Location ..
 
-where.exe git
+$gitInstalled = Get-Command git -ErrorAction SilentlyContinue
 
-if(!($?)) {
+if(!($gitInstalled)) {
     Write-Output "Git not installed. Installing using winget..."
     winget install --id Git.Git -e --source winget
+    RefreshEnv
 }
 
 #Install Python
