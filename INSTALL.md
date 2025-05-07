@@ -31,10 +31,10 @@ Do not close out of the windows and accept the installer license agreements when
 they appear.
 
 Once the script finishes installing, run the following command from the top level
-project directory to run the code:
+project directory or double click the script named `startWindows.ps1` to run the code:
 
 `
-yarn run turbo run dev-windows
+yarn run dev-windows
 `
 
 The setupWindows.ps1 script only needs to be run once on project setup before the program
@@ -53,7 +53,7 @@ sudo chmod +x setupLinux.sh && ./setupLinux.sh
 `
 
 Once the script finishes installing, run the following command from the top level
-project directory to run the code:
+project directory or open the script named `startLinuxMax.sh` to run the code:
 
 `
 yarn run turbo run dev-linux
