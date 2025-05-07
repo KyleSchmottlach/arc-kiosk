@@ -1,7 +1,7 @@
 function RefreshEnv {
     $userpath = [System.Environment]::GetEnvironmentVariable("Path","User")
     $machinePath = [System.Environment]::GetEnvironmentVariable("Path","Machine")
-    $env:Path = $userpath + ";" + $machinePath
+    $env:Path = $userpath + ";" + $machinePath + ";$HOME\AppData\Local\Microsoft\WinGet\Packages\Schniz.fnm_Microsoft.Winget.Source_8wekyb3d8bbwe\"
 }
 
 function Install-Node {
@@ -12,15 +12,14 @@ function Install-Node {
 
         Add-Content -Path "$HOME\Documents\PowerShell\Microsoft.PowerShell_profile.ps1" -Value "fnm env --use-on-cd --shell powershell | Out-String | Invoke-Expression"
 
-        $env:PATH += ";$HOME\AppData\Local\Microsoft\WinGet\Packages\Schniz.fnm_Microsoft.Winget.Source_8wekyb3d8bbwe\"
-
-        Invoke-Expression (&fnm env --use-on-cd)
+        . $profile
     }
 
     RefreshEnv
 
     fnm install 23
     fnm default 23
+    fnm use default
 }
 
 $workingDir = "$(Split-Path $MyInvocation.MyCommand.Path)"
