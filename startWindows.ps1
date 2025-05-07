@@ -1,1 +1,1 @@
-yarn run turbo run dev-windows
+yarn run dev-windows
